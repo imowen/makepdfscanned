@@ -1,5 +1,7 @@
 <template>
   <MainContainer>
+    <!-- 顶部横幅广告 -->
+    <AdSlot type="banner" size="large" label="Google AdSense - 横幅广告 (728x90)" />
    
     <n-grid x-gap="25" y-gap="25" :cols="12" item-responsive responsive="screen">
       <n-grid-item span="12 s:5 m:4 l:3">
@@ -15,14 +17,25 @@
             :saving="saving"
             :pdf="scannedPDF"
           />
+          
+          <!-- 左侧栏底部广告 -->
+          <AdSlot type="rectangle" size="medium" label="Google AdSense - 矩形广告 (300x250)" />
         </n-space>
       </n-grid-item>
       <n-grid-item span="12 s:7 m:8 l:9">
-        <PreviewCompare
-          :pdfRenderer="pdfRenderer"
-          :scanRenderer="scanRenderer"
-          :scale="config.scale"
-        />
+        <n-space vertical>
+          <!-- 右侧栏顶部广告 -->
+          <AdSlot type="banner" size="medium" label="Google AdSense - 横幅广告 (468x60)" />
+          
+          <PreviewCompare
+            :pdfRenderer="pdfRenderer"
+            :scanRenderer="scanRenderer"
+            :scale="config.scale"
+          />
+          
+          <!-- 右侧栏底部广告 -->
+          <AdSlot type="rectangle" size="small" label="Google AdSense - 小矩形广告 (250x200)" />
+        </n-space>
       </n-grid-item>
     </n-grid>
   </MainContainer>
@@ -31,6 +44,7 @@
 <script lang="ts" setup>
 import { NGrid, NGridItem, NSpace } from 'naive-ui'
 import MainContainer from '@/components/MainContainer.vue'
+import AdSlot from '@/components/ads/AdSlot.vue'
 import { type ScanConfig, defaultConfig, CanvasScanner } from '@/utils/scan-renderer/canvas-scan'
 import ScanSettingsCard from '@/components/scan-settings/ScanSettingsCard.vue'
 import PDFUpload from '@/components/pdf-upload/PDFUpload.vue'

@@ -1,14 +1,10 @@
 <template>
   <div class="main-container">
-    <div class="language-switcher">
-      <LanguageSwitcher />
-    </div>
     <slot></slot>
   </div>
 </template>
 
 <script setup lang="ts">
-import LanguageSwitcher from '@/components/buttons/LanguageSwitcher.vue'
 </script>
 
 <style lang="scss" scoped>
@@ -20,7 +16,6 @@ import LanguageSwitcher from '@/components/buttons/LanguageSwitcher.vue'
   margin-bottom: 40px;
   margin-right: auto;
   margin-left: auto;
-  position: relative;
 
   @media (min-width: 576px) {
     & {
@@ -42,12 +37,5 @@ import LanguageSwitcher from '@/components/buttons/LanguageSwitcher.vue'
       max-width: 1140px;
     }
   }
-}
-
-.language-switcher {
-  position: absolute;
-  top: -5px;
-  right: 15px;
-  z-index: 100;
 }
 </style>
