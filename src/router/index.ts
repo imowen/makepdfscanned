@@ -5,6 +5,11 @@ const router = createRouter({
   routes: [
     {
       path: '/',
+      name: 'home',
+      component: () => import('@/views/IndexView.vue')
+    },
+    {
+      path: '/scan',
       name: 'scan',
       component: () => import('@/views/ScanViewFeatureDetectView.vue')
     },
@@ -22,7 +27,7 @@ const router = createRouter({
     {
       path: '/:pathMatch(.*)*',
       name: 'catch-all',
-      redirect: { name: 'scan' }
+      redirect: { name: 'home' }
     }
   ]
 })
