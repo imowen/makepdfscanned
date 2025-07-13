@@ -14,7 +14,7 @@
 <script setup lang="ts">
 import { NDropdown, NButton } from 'naive-ui'
 import { useI18n } from 'vue-i18n'
-import { computed } from 'vue'
+import { onMounted } from 'vue'
 
 const { locale } = useI18n()
 
@@ -39,8 +39,10 @@ const handleLanguageChange = (key: string) => {
 }
 
 // 从本地存储恢复语言设置
-const savedLanguage = localStorage.getItem('language')
-if (savedLanguage && ['en', 'zh-CN', 'zh-TW'].includes(savedLanguage)) {
-  locale.value = savedLanguage
-}
+onMounted(() => {
+  const savedLanguage = localStorage.getItem('language')
+  if (savedLanguage && ['en', 'zh-CN', 'zh-TW'].includes(savedLanguage)) {
+    locale.value = savedLanguage
+  }
+})
 </script>
